@@ -21,7 +21,8 @@ namespace Juan.Data
         public DbSet<PraductBanner> PraductBanners { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Language> Languages { get; set; }
-
+        public DbSet<Blog> Blogs { get; set; }
         public DbSet<Setting> Settings { get; set; }
+        public DbSet<Brand> Brands { get; set; }
     }
 }

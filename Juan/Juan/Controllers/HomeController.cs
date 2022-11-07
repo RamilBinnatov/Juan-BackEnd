@@ -29,8 +29,7 @@ namespace Juan.Controllers
 
             Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
 
-            int take = int.Parse(settingDatas["HomeTakeProduct"]);
-
+            int homeTakeProduct = int.Parse(settingDatas["HomeTakeProduct"]);
 
             IEnumerable<Slider> sliders = await _context.Sliders
                 .Where(m => !m.IsDeleted)
@@ -44,11 +43,18 @@ namespace Juan.Controllers
             IEnumerable<Category> categories = await _context.Categories
                 .Where(m => !m.IsDeleted)
                 .ToListAsync();
+            IEnumerable<Blog> blogs = await _context.Blogs
+                .Where(m => !m.IsDeleted)
+                .Take(4)
+                .ToListAsync();
+            IEnumerable<Brand> brands = await _context.Brands
+                .Where(m => !m.IsDeleted)
+                .ToListAsync();
             IEnumerable<Product> products = await _context.Products
                 .Where(m => m.IsDeleted == false)
                 .Include(m => m.Category)
                 .Include(m => m.ProductImages)
-                .Take(take)
+                .Take(homeTakeProduct)
                 .ToListAsync();
 
 
@@ -59,6 +65,8 @@ namespace Juan.Controllers
                 Categories = categories,
                 Products = products,
                 PraductBanners = praductBanners,
+                Blogs = blogs,
+                Brands = brands,
             };
 
             return View(model);
