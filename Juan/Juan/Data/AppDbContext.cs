@@ -18,11 +18,15 @@ namespace Juan.Data
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductImage> ProductImages { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<ProductSize> ProductSizes { get; set; }
         public DbSet<PraductBanner> PraductBanners { get; set; }
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<Blog> Blogs { get; set; }
+        public DbSet<ProductColor> ProductColors { get; set; }
         public DbSet<Setting> Settings { get; set; }
         public DbSet<Brand> Brands { get; set; }
+        public DbSet<Social> Socials { get; set; }
+        public DbSet<Advertisement> Advertisements { get; set; }
     }
 }

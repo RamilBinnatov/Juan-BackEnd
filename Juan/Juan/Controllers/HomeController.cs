@@ -23,6 +23,8 @@ namespace Juan.Controllers
             _layoutService = layoutService;
         }
 
+
+
         public async Task<IActionResult> Index()
         {
 
@@ -131,5 +133,7 @@ namespace Juan.Controllers
 
         //    return basket;
         //}
+
+
     }
 }
