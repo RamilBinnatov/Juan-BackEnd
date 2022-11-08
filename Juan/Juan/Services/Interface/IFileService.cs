@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Juan.Services.Interface
 {
-    interface IFileService
+    public interface IFileService
     {
         string ReadFile(string path, string template);
     }

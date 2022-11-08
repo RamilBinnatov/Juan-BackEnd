@@ -58,7 +58,7 @@ namespace Juan.Controllers
                 .Include(m => m.ProductImages)
                 .Take(homeTakeProduct)
                 .ToListAsync();
-
+                
 
             HomeVM model = new HomeVM
             {

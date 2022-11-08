@@ -24,9 +24,16 @@ namespace Juan.ViewComponents
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
-            var settingDatas = await _layoutService.GetDatasFromSetting();
+            Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
+            string Address = settingDatas["Address"];
+            string PhoneNumber = settingDatas["PhoneNumber"];
+            string WorkingHours = settingDatas["WorkingHours"];
+            string Email = settingDatas["Email"];
 
-            string email = settingDatas["Email"];
+            ViewBag.Address = Address;
+            ViewBag.PhoneNumber = PhoneNumber;
+            ViewBag.WorkingHours = WorkingHours;
+            ViewBag.Email = Email;
 
             IEnumerable<Social> socials = await _context.Socials
                 .Where(m => !m.IsDeleted)?

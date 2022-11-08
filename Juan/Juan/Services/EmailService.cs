@@ -21,14 +21,12 @@ namespace Juan.Services
         }
         public void Send(string to, string subject, string body, string from = null)
         {
-
             var email = new MimeMessage();
 
             email.From.Add(MailboxAddress.Parse(from ?? Configuration.GetSection("Smtp:FromAddress").Value));
             email.To.Add(MailboxAddress.Parse(to));
             email.Subject = subject;
             email.Body = new TextPart(TextFormat.Html) { Text = body };
-
             // send email
             using var smtp = new SmtpClient();
             smtp.Connect(Configuration.GetSection("Smtp:Server").Value, int.Parse(Configuration.GetSection("Smtp:Port").Value), SecureSocketOptions.StartTls);

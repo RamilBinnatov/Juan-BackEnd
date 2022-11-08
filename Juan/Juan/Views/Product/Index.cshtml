@@ -1,4 +1,4 @@
-﻿
+﻿@model ProductDetailVM
 <main>
     <!-- breadcrumb area start -->
     <div class="breadcrumb-area bg-img" data-bg="assets/img/banner/breadcrumb-banner.jpg">
@@ -30,33 +30,32 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="product-large-slider mb-20">
-
-                                    
+                                    @foreach (var item in Model.productImages.Where(m=>m.IsMain))
+                                    {
                                         <div class="pro-large-img img-zoom">
-                                            <img src="~/assets/img/product/" alt="" />
+                                            <img src="~/assets/img/product/@item.Image" alt="" />
                                         </div>
-                                    
+                                    }
                                 </div>
-
-                                
-                                    <div class="pro-nav slick-row-5">
-                                        <div class="pro-nav-thumb"><img src="~/assets/img/product/" alt="" /></div>
-                                    </div>
-                                
+                                <div class="pro-nav slick-row-5">
+                                    @foreach (var item in Model.productImages)
+                                    {
+                                        <div class="pro-nav-thumb"><img src="~/assets/img/product/@item.Image" alt="" /></div>
+                                    }
+                                </div>
                             </div>
                             <div class="col-lg-7">
                                 <div class="product-details-des">
-                                    <h3 class="pro-det-title">Primitive Mens Premium Shoes</h3>
+                                    <h3 class="pro-det-title">@Model.Title</h3>
                                     <div class="pro-review">
                                         <span><a href="#">1 Review(s)</a></span>
                                     </div>
                                     <div class="price-box">
-                                        <span class="regular-price">$70.00</span>
-                                        <span class="old-price"><del>$80.00</del></span>
+                                        <span class="regular-price">$@((Model.Price-((Model.Price/100)*Model.ProductDiscount)).ToString("##.00"))</span>
+                                        <span class="old-price"><del>$@(Model.Price.ToString("##.00"))</del></span>
                                     </div>
                                     <p>
-                                        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.<br>
-                                        Phasellus id nisi quis justo tempus mollis sed et dui. In hac habitasse platea dictumst. Suspendisse ultrices mauris diam. Nullam sed aliquet elit. Mauris consequat nisi ut mauris efficitur lacinia.
+                                        @Model.Description
                                     </p>
                                     <div class="quantity-cart-box d-flex align-items-center mb-20">
                                         <div class="quantity">
@@ -408,10 +407,10 @@
                                 </div>
                                 <div class="share-icon">
                                     <h5 class="cat-title">Share:</h5>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    @foreach (var item in Model.socials)
+                                    {
+                                        <a href="#"><i class="@item.Name"></i></a>
+                                    }
                                 </div>
                             </div>
                         </div>

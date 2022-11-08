@@ -28,5 +28,6 @@ namespace Juan.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Social> Socials { get; set; }
         public DbSet<Advertisement> Advertisements { get; set; }
+        public DbSet<Tags> Tags { get; set; }
     }
 }

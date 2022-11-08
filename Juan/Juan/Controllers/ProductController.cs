@@ -19,7 +19,7 @@ namespace Juan.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        
         public async Task<IActionResult> Index(int? id)
         {
             if (id == null)
@@ -34,14 +34,30 @@ namespace Juan.Controllers
                 .Include(m => m.ProductColor)
                 .Include(m =>m.ProductSize)
                 .FirstOrDefaultAsync();
+            IEnumerable<Social> socials = await _context.Socials
+                .Where(m => !m.IsDeleted)
+                .ToListAsync();
 
             if (product == null)
             {
                 return NotFound();
             }
 
+            ProductDetailVM productDetailVM = new ProductDetailVM
+            {
+                Title = product.Title,
+                Price = product.Price,
+                Description = product.Description,
+                CategoryName = product.Category.Name,
+                ProductColor = product.ProductColor.Color,
+                ProductSize = product.ProductSize.Size,
+                productImages = product.ProductImages,
+                ProductDiscount = product.Discount,
+                socials = socials,
+            };
 
-            return View();
+
+            return View(productDetailVM);
         }
     }
 }
