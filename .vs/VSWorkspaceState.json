@@ -3,10 +3,14 @@
     "",
     "\\Juan",
     "\\Juan\\Juan",
-    "\\Juan\\Juan\\Controllers",
     "\\Juan\\Juan\\Views",
-    "\\Juan\\Juan\\Views\\Product"
+    "\\Juan\\Juan\\Views\\Home",
+    "\\Juan\\Juan\\Views\\Product",
+    "\\Juan\\Juan\\Views\\Shared",
+    "\\Juan\\Juan\\Views\\Shared\\Components",
+    "\\Juan\\Juan\\Views\\Shared\\Components\\Quick",
+    "\\Juan\\Juan\\Views\\Shop"
   ],
-  "SelectedNode": "\\Juan\\Juan\\Views\\Product\\Index.cshtml",
+  "SelectedNode": "\\Juan\\Juan\\Views\\Shop\\Index.cshtml",
   "PreviewInSolutionExplorer": false
 }

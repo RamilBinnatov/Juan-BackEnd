@@ -15,7 +15,7 @@ namespace Juan.ViewModels
         public string CategoryName { get; set; }
         public string ProductSize { get; set; }
         public string ProductColor { get; set; }
-        public IEnumerable<ProductImage> productImages { get; set; }
+        public IEnumerable<ProductImage> ProductImages { get; set; }
         public int ProductDiscount { get; set; }
         public IEnumerable<Social> socials { get; set; }
 

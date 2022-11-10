@@ -5,6 +5,7 @@ using Juan.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -23,12 +24,8 @@ namespace Juan.Controllers
             _layoutService = layoutService;
         }
 
-
-
         public async Task<IActionResult> Index()
         {
-
-
             Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
 
             int homeTakeProduct = int.Parse(settingDatas["HomeTakeProduct"]);
@@ -52,8 +49,8 @@ namespace Juan.Controllers
             IEnumerable<Brand> brands = await _context.Brands
                 .Where(m => !m.IsDeleted)
                 .ToListAsync();
-            IEnumerable<Product> products = await _context.Products
-                .Where(m => m.IsDeleted == false)
+            IEnumerable<Products> products = await _context.Products
+                .Where(m => !m.IsDeleted)
                 .Include(m => m.Category)
                 .Include(m => m.ProductImages)
                 .Take(homeTakeProduct)
@@ -75,64 +72,64 @@ namespace Juan.Controllers
         }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> AddBasket(int? id)
-        //{
-        //    if (id is null) return BadRequest();
+        [HttpPost]
+        public async Task<IActionResult> AddBasket(int? id)
+        {
+            if (id is null) return BadRequest();
 
-        //    var dbProduct = await GetProductById(id);
+            var dbProduct = await GetProductById(id);
+ 
+            if (dbProduct == null) return NotFound();
 
-        //    if (dbProduct == null) return NotFound();
+            List<BasketVM> basket = GetBasket();
 
-        //    List<BasketVM> basket = GetBasket();
+            UpdateBasket(basket, dbProduct.Id);
 
-        //    UpdateBasket(basket, dbProduct.Id);
+            Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
 
-        //    Response.Cookies.Append("basket", JsonConvert.SerializeObject(basket));
-
-        //    return Ok();
-        //}
-
-
-        //private void UpdateBasket(List<BasketVM> basket, int id)
-        //{
-        //    BasketVM existProduct = basket.FirstOrDefault(m => m.Id == id);
-
-        //    if (existProduct == null)
-        //    {
-        //        basket.Add(new BasketVM
-        //        {
-        //            Id = id,
-        //            Count = 1
-        //        });
-        //    }
-        //    else
-        //    {
-        //        existProduct.Count++;
-        //    }
-        //}
-
-        //private async Task<Product> GetProductById(int? id)
-        //{
-        //    return await _context.Products.FindAsync(id);
-        //}
+            return RedirectToAction("Index");
+        }
 
 
-        //private List<BasketVM> GetBasket()
-        //{
-        //    List<BasketVM> basket;
+        private void UpdateBasket(List<BasketVM> basket, int id)
+        {
+            BasketVM existProduct = basket.FirstOrDefault(m => m.Id == id);
 
-        //    if (Request.Cookies["basket"] != null)
-        //    {
-        //        basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-        //    }
-        //    else
-        //    {
-        //        basket = new List<BasketVM>();
-        //    }
+            if (existProduct == null)
+            {
+                basket.Add(new BasketVM
+                {
+                    Id = id,
+                    Count = 1
+                });
+            }
+            else
+            {
+                existProduct.Count++;
+            }
+        }
 
-        //    return basket;
-        //}
+        private async Task<Products> GetProductById(int? id)
+        {
+            return await _context.Products.FindAsync(id);
+        }
+
+
+        private List<BasketVM> GetBasket()
+        {
+            List<BasketVM> basket;
+
+            if (Request.Cookies["basket"] != null)
+            {
+                basket = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
+            }
+            else
+            {
+                basket = new List<BasketVM>();
+            }
+
+            return basket;
+        }
 
 
     }

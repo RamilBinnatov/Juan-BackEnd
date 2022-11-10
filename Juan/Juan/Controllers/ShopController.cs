@@ -15,11 +15,13 @@ namespace Juan.Controllers
     {
         private readonly AppDbContext _context;
         private readonly LayoutService _layoutService;
+        private readonly ProductService _productService;
 
-        public ShopController(AppDbContext context, LayoutService layoutService)
+        public ShopController(AppDbContext context, ProductService productService, LayoutService layoutService)
         {
             _context = context;
             _layoutService = layoutService;
+            _productService = productService;
         }
 
         public async Task<IActionResult> Index()
@@ -30,19 +32,20 @@ namespace Juan.Controllers
                 .Where(m => !m.IsDeleted)
                 .ToListAsync();
             IEnumerable<ProductColor> productColors = await _context.ProductColors
-                .Where(m => !m.IsDeleted)
+                .Where(m => !m.IsDeleted)  
                 .ToListAsync();
             IEnumerable<ProductSize> productSize = await _context.ProductSizes
                 .Where(m => !m.IsDeleted)
                 .ToListAsync();
-            IEnumerable<Product> products = await _context.Products
-                .Where(m => m.IsDeleted == false)
+            IEnumerable<Products> products = await _context.Products
+                .Where(m => !m.IsDeleted)
                 .Include(m => m.Category)
                 .Include(m => m.ProductImages)
                 .ToListAsync();
             Advertisement advertisements = await _context.Advertisements
                 .Where(m => !m.IsDeleted)
                 .FirstOrDefaultAsync();
+
 
             ShopVM model = new ShopVM
             {
@@ -51,6 +54,8 @@ namespace Juan.Controllers
                 ProductSizes = productSize,
                 Products = products,
                 Advertisements = advertisements,
+
+                
             };
 
 

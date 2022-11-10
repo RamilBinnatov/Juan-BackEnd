@@ -34,9 +34,10 @@
                             </div>
                             <div class="sidebar-body">
                                 <ul class="color-list">
+                                    <li><a href="" data-id="All">All<span></span></a></li>
                                     @foreach (var item in Model.Categories)
                                     {
-                                        <li><a href="#">@item.Name<span>(10)</span></a></li>
+                                        <li><a href="" data-id="@item.Id">@item.Name<span></span></a></li>
                                     }
                                 </ul>
                             </div>
@@ -72,7 +73,7 @@
                                 <ul class="color-list">
                                     @foreach (var item in Model.ProductColors)
                                     {
-                                        <li><a href="#">@item.Color<span>(05)</span></a></li>
+                                        <li><a >@item.Color<span>(05)</span></a></li>
                                     }
                                 </ul>
                             </div>
@@ -142,13 +143,13 @@
                         </div>
                         <!-- shop product top wrap start -->
                         <!-- product item list start -->
-                        <div class="shop-product-wrap grid-view row mbn-50">
+                        <div class="shop-product-wrap grid-view row mbn-50">    
                             @foreach (var item in Model.Products)
                             {
                                 <div class="col-lg-4 col-sm-6">
-                                    <div class="product-item mb-53">
+                                    <div class="product-item mb-53" data-id="@item.CategoryId">
                                         <div class="product-thumb">
-                                            <a href="product-details.html">
+                                            <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
                                                 <img src="assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                             </a>
                                         </div>
@@ -187,7 +188,8 @@
                                             <p>@item.Description</p>
                                             <div class="product-link-2 position-static">
                                                 <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                                <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                                @*<a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>*@
+                                                <button type="submit" class="btn btn-primary add-to-cart"><i class="ion-bag"></i></button>
                                                 <a href="#" data-toggle="modal" data-target="#quick_view">
                                                     <span data-toggle="tooltip"
                                                           title="Quick View"><i class="ion-ios-eye-outline"></i></span>

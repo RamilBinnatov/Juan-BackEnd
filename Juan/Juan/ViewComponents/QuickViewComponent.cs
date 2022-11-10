@@ -1,5 +1,6 @@
 ﻿using Juan.Data;
 using Juan.Models;
+using Juan.Services;
 using Juan.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -8,24 +9,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Juan.Controllers
+namespace Juan.ViewComponents
 {
-    public class ProductController : Controller
+    public class QuickViewComponent : ViewComponent
     {
+        private readonly LayoutService _layoutService;
         private readonly AppDbContext _context;
 
-        public ProductController(AppDbContext context)
+        public QuickViewComponent(LayoutService layoutService, AppDbContext context)
         {
+            _layoutService = layoutService;
             _context = context;
         }
-
-        
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IViewComponentResult> InvokeAsync(int? id)
         {
-            if (id == null)
-            {
-                return BadRequest();
-            }
+            Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
+
 
             Products product = await _context.Products
                 .Where(m => !m.IsDeleted && m.Id == id)
@@ -36,25 +35,19 @@ namespace Juan.Controllers
                 .Where(m => !m.IsDeleted)
                 .ToListAsync();
 
-            if (product == null)
-            {
-                return NotFound();
-            }
-
             ProductDetailVM productDetailVM = new ProductDetailVM
             {
-                Id = product.Id,
                 Title = product.Title,
                 Price = product.Price,
                 Description = product.Description,
                 CategoryName = product.Category.Name,
                 ProductImages = product.ProductImages,
                 ProductDiscount = product.Discount,
-                socials = socials,
+                socials = socials
             };
 
-
             return View(productDetailVM);
+
         }
     }
 }

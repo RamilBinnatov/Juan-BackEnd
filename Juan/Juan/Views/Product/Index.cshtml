@@ -30,7 +30,7 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="product-large-slider mb-20">
-                                    @foreach (var item in Model.productImages.Where(m=>m.IsMain))
+                                    @foreach (var item in Model.ProductImages.Where(m=>m.IsMain))
                                     {
                                         <div class="pro-large-img img-zoom">
                                             <img src="~/assets/img/product/@item.Image" alt="" />
@@ -38,7 +38,7 @@
                                     }
                                 </div>
                                 <div class="pro-nav slick-row-5">
-                                    @foreach (var item in Model.productImages)
+                                    @foreach (var item in Model.ProductImages)
                                     {
                                         <div class="pro-nav-thumb"><img src="~/assets/img/product/@item.Image" alt="" /></div>
                                     }
@@ -69,10 +69,10 @@
                                     </div>
                                     <div class="share-icon">
                                         <h5 class="cat-title">Share:</h5>
-                                        <a href="#"><i class="fa fa-facebook"></i></a>
-                                        <a href="#"><i class="fa fa-twitter"></i></a>
-                                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                                        <a href="#"><i class="fa fa-google-plus"></i></a>
+                                        @foreach (var item in Model.socials)
+                                        {
+                                            <a href="#"><i class="@item"></i></a>
+                                        }
                                     </div>
                                 </div>
                             </div>

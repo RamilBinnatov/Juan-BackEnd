@@ -12,7 +12,7 @@ namespace Juan.ViewModels
         public IEnumerable<Blog> Blogs { get; set; }
         public IEnumerable<Service> Services { get; set; }
         public IEnumerable<Category> Categories { get; set; }
-        public IEnumerable<Product> Products { get; set; }
+        public IEnumerable<Products> Products { get; set; }
         public IEnumerable<PraductBanner> PraductBanners { get; set; }
         public IEnumerable<Brand> Brands { get; set; }
     }

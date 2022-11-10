@@ -1,5 +1,41 @@
 (function ($) {
+
 	"use strict";
+
+
+
+	$(document).on("click", ".salam1231", function () {
+
+		let productId = parseInt($($(this).closest(".product-item")[0]).attr('id'));
+
+		let data = { id: productId };
+
+		$.ajax({
+			url: "/home/addbasket",
+			type: "POST",
+			data: data,
+			contentType: "application/x-www-form-urlencoded",
+			success: function (res) {
+				Swal.fire(
+					'Good job!',
+					'Product added',
+					'success'
+				)
+			}
+		})
+
+	});
+
+
+
+
+
+
+
+
+
+
+
 
 	// Sticky menu 
 	var $window = $(window);
@@ -328,3 +364,4 @@
 
 
 }(jQuery));
+

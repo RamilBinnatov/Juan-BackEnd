@@ -17,7 +17,7 @@ namespace Juan.Services
             _context = context;
         }
 
-        public async Task<IEnumerable<Product>> GetAll(int take)
+        public async Task<IEnumerable<Products>> GetAll(int take)
         {
             return await _context.Products.Where(m => !m.IsDeleted).Include(m => m.ProductImages).Take(take).OrderBy(m => m.Id).ToListAsync();
         }

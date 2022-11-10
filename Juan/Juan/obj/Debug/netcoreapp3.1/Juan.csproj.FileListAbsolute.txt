@@ -325,13 +325,16 @@ C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shared\_ValidationPartial.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\_ViewStart.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Basket\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Blog\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Contact\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Product\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Footer\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Header\Default.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Components\Quick\Default.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shop\Index.cshtml.g.cs
@@ -345,4 +348,3 @@ C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.dll
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.pdb
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.csproj.AssemblyReference.cache
-C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
