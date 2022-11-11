@@ -18,14 +18,15 @@
 			success: function (res) {
 				swal({
 					position: 'mid',
-					type: 'info',
-					icon: 'info',
+					type: 'success',
+					icon: 'success',
 					title: 'Product added',
 					showConfirmButton: false,
-					timer: 1500
+					timer: 1000
 				});
 			}
 		})
+
 
 	});
 
@@ -48,6 +49,26 @@
 				)
 			}
 		})
+
+	});
+
+
+	$(document).on("click", ".minicart-remove", function () {
+
+		let productIdRemove = parseInt($($(this).closest(".minicart-item-wrapper")[0]).attr('id'));
+
+		let dataRemove = { id: productIdRemove };
+
+		$.ajax({
+			url: "/basket/RemoveFromCart",
+			type: "POST",
+			data: dataRemove,
+			contentType: "application/x-www-form-urlencoded",
+			success: function (res) {
+			}
+		})
+
+		
 
 	});
 

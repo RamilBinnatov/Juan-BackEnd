@@ -130,10 +130,10 @@
             <div class="minicart-close">
                 <i class="ion-android-close"></i>
             </div>
-            <div class="minicart-content-box">
+            @*<div class="minicart-content-box">
                 @foreach (var item in Model.BasketProduct)
                 {
-                    <div class="minicart-item-wrapper">
+                    <div class="minicart-item-wrapper" id="@item.Id">
                         <ul>
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
@@ -170,7 +170,7 @@
                     <a asp-controller="Basket" asp-action="Index"><i class="fa fa-shopping-cart"></i> view cart</a>
                     <a href="cart.html"><i class="fa fa-share"></i> checkout</a>
                 </div>
-            </div>
+            </div>*@
         </div>
     </div>
 </div>

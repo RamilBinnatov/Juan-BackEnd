@@ -39,7 +39,7 @@ namespace Juan.Controllers
                         Image = product.ProductImages.Where(m => m.IsMain).FirstOrDefault().Image,
                         Price = product.Price,
                         Count = item.Count,
-                        Total = product.Price * item.Count,
+                        Total = (product.Price - ((product.Price / 100) * product.Discount)),
                         Discount = product.Discount,
                         Id = product.Id
 

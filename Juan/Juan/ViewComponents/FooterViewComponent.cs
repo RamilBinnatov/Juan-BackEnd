@@ -40,33 +40,11 @@ namespace Juan.ViewComponents
                 .Where(m => !m.IsDeleted)?
                 .ToListAsync();
 
-            List<BasketVM> basketItems = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
-
-            List<BasketDetailVM> basketDetailList = new List<BasketDetailVM>();
-
-            foreach (var item in basketItems)
-            {
-                Products product = await _context.Products
-                    .Where(m => m.Id == item.Id && m.IsDeleted == false)
-                    .Include(m => m.ProductImages).FirstOrDefaultAsync();
-
-                BasketDetailVM basketModel = new BasketDetailVM
-                {
-                    Id = product.Id,
-                    Title = product.Title,
-                    Image = product.ProductImages.Where(m => m.IsMain)?.FirstOrDefault().Image,
-                    Price = product.Price,
-                    Count = item.Count,
-                    Total = product.Price * item.Count
-                };
-                basketDetailList.Add(basketModel);
-            }
-
 
             FooterVM footerVM = new FooterVM
             {
                 Socials = socials,
-                BasketProduct = basketDetailList,
+                
             };
 
 
