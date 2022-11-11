@@ -98,7 +98,7 @@
                         <div class="sidebar-single">
                             <div class="sidebar-banner">
                                 <a href="#">
-                                    <img src="assets/img/banner/@Model.Advertisements.Image" alt="">
+                                    <img src="~/img/@ViewBag.Ad" alt="">
                                 </a>
                             </div>
                         </div>
@@ -150,7 +150,7 @@
                                     <div class="product-item mb-53" data-id="@item.CategoryId">
                                         <div class="product-thumb">
                                             <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
-                                                <img src="assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -174,7 +174,7 @@
                                     <div class="product-list-item mb-30">
                                         <div class="product-thumb">
                                             <a href="product-details.html">
-                                                <img src="assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">
+                                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">
                                             </a>
                                         </div>
                                         <div class="product-content-list">
@@ -188,7 +188,7 @@
                                             <p>@item.Description</p>
                                             <div class="product-link-2 position-static">
                                                 <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                                @*<a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>*@
+                                                <a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
                                                 <button type="submit" class="btn btn-primary add-to-cart"><i class="ion-bag"></i></button>
                                                 <a href="#" data-toggle="modal" data-target="#quick_view">
                                                     <span data-toggle="tooltip"
@@ -231,6 +231,7 @@
                 <div class="product-details-inner">
                     <div class="row">
                         <div class="col-lg-5">
+
                             <div class="product-large-slider mb-20">
                                 <div class="pro-large-img img-zoom">
                                     <img src="~/assets/img/product/product-details-img1.jpg" alt="product thumb" />

@@ -33,5 +33,11 @@ namespace Juan.Controllers
 
             return View();
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Index(int? id)
+        {
+            return View();
+        }
     }
 }

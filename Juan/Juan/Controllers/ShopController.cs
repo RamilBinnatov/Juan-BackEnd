@@ -24,9 +24,12 @@ namespace Juan.Controllers
             _productService = productService;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int page = 1, int take = 4)
         {
             Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
+            string Ad = settingDatas["ShopAd"];
+
+            ViewBag.Ad = Ad;
 
             IEnumerable<Category> categories = await _context.Categories
                 .Where(m => !m.IsDeleted)
@@ -42,9 +45,6 @@ namespace Juan.Controllers
                 .Include(m => m.Category)
                 .Include(m => m.ProductImages)
                 .ToListAsync();
-            Advertisement advertisements = await _context.Advertisements
-                .Where(m => !m.IsDeleted)
-                .FirstOrDefaultAsync();
 
 
             ShopVM model = new ShopVM
@@ -53,7 +53,6 @@ namespace Juan.Controllers
                 ProductColors = productColors,
                 ProductSizes = productSize,
                 Products = products,
-                Advertisements = advertisements,
 
                 
             };

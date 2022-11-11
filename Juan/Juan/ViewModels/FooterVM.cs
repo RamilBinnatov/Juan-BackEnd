@@ -9,5 +9,6 @@ namespace Juan.ViewModels
     public class FooterVM
     {
         public IEnumerable<Social> Socials { get; set; }
+        public List<BasketDetailVM> BasketProduct { get; set; }
     }
 }

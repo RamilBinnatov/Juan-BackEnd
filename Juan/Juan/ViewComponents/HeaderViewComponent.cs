@@ -26,6 +26,10 @@ namespace Juan.ViewComponents
         {
             var settingDatas = await _layoutService.GetDatasFromSetting();
 
+            string logo = settingDatas["Logo"];
+
+            ViewBag.logo = logo;
+
             IEnumerable<Currency> currencies = await _context.Currencies
                 .Where(m=>!m.IsDeleted)
                 .ToListAsync();

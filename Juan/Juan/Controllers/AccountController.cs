@@ -1,4 +1,4 @@
-﻿    using Juan.Models;
+﻿using Juan.Models;
 using Juan.Services.Interface;
 using Juan.ViewModels;
 using Microsoft.AspNetCore.Identity;

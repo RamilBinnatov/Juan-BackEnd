@@ -14,7 +14,7 @@
                         @foreach (var item in Model.Sliders)
                         {
                             <div class="hero-single-slide">
-                                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/@item.Image">
+                                <div class="hero-slider-item bg-img" data-bg="img/@item.Image">
                                     <div class="hero-slider-content slide-1">
                                         <h5 class="slide-subtitle">@item.Title</h5>
                                         <h2 class="slide-title">@item.Header</h2>
@@ -42,7 +42,7 @@
                     <div class="col-lg-4">
                         <div class="service-policy-item mt-30 bg-1">
                             <div class="policy-icon">
-                                <img src="~/assets/img/icon/@item.Image" alt="policy icon">
+                                <img src="~/img/@item.Image" alt="policy icon">
                             </div>
                             <div class="policy-content">
                                 <h5 class="policy-title">@item.Title</h5>
@@ -62,8 +62,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2 class="title">Our Product</h2>
-                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                        <h2 class="title">@ViewBag.Section1</h2>
+                        <p class="sub-title">@ViewBag.Section1Desc</p>
                     </div>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                             <div id="@item.Id" class="product-item mb-50">
                                 <div class="product-thumb">
                                     <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
-                                        <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                        <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -86,10 +86,9 @@
                                         <span class="price-regular">@((item.Price-((item.Price/100)*item.Discount)).ToString("##.00"))</span>
                                         <span class="price-old"><del>@item.Price.ToString("##.00")</del></span>
                                     </div>
-                                    <button type="submit" class="btn btn-primary add-to-cart salam1231">add to cart </button>
                                     <div class="product-action-link">
                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-
+                                        <a href="#" class="salam1231" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
                                         <a href="#" data-toggle="modal" data-target="#quick_view">
                                             <span data-toggle="tooltip"
                                                   title="Quick View"><i class="ion-ios-eye-outline"></i></span>
@@ -113,7 +112,7 @@
                     <div class="col-md-6">
                         <div class="img-container mt-30">
                             <a href="product-details.html">
-                                <img src="~/assets/img/banner/@item.Images" alt="banner-image">
+                                <img src="~/img/@item.Images" alt="banner-image">
                             </a>
                             <div class="banner-text">
                                 <h5 class="banner-subtitle">@item.Title</h5>
@@ -133,8 +132,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2 class="title">top seller</h2>
-                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur adipisicing</p>
+                        <h2 class="title">@ViewBag.Section3</h2>
+                        <p class="sub-title">@ViewBag.Section3Desc</p>
                     </div>
                 </div>
             </div>
@@ -142,7 +141,7 @@
                 <div class="col-xl-4 col-lg-5 col-md-5">
                     <div class="product-banner">
                         <a href="#">
-                            <img src="~/assets/img/banner/banner-3.jpg" alt="product banner">
+                            <img src="~/img/@ViewBag.TopSeller" alt="product banner">
                         </a>
                     </div>
                 </div>
@@ -150,11 +149,11 @@
                     <div class="top-seller-carousel slick-row-15 mtn-30">
                         @foreach (var item in Model.Products)
                         {
-                            <div class="slide-item">
+                            <div id="@item.Id" class="slide-item">
                                 <div class="pro-item-small mt-30">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                            <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                         </a>
                                     </div>
                                     <div class="pro-small-content">
@@ -174,10 +173,10 @@
                                         </div>
                                         <div class="product-link-2">
                                             <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                            <button type="submit" class="btn btn-primary add-to-cart">add to cart</button>
-                                            @*<a href="#" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>*@
-                                            <a asp-controller="Home" asp-action="AddBasket" asp-route-id="@item.Id">
-                                                <span data-toggle="tooltip" title="Quick View"><i class="ion-ios-eye-outline"></i></span>
+                                            <a href="#" class="salam12321" data-toggle="tooltip" title="Add To Cart"><i class="ion-bag"></i></a>
+                                            <a href="#" data-toggle="modal" data-target="#quick_view">
+                                                <span data-toggle="tooltip"
+                                                      title="Quick View"><i class="ion-ios-eye-outline"></i></span>
                                             </a>
                                         </div>
                                     </div>
@@ -196,8 +195,8 @@
             <div class="row">
                 <div class="col-12">
                     <div class="section-title text-center">
-                        <h2 class="title">our blog</h2>
-                        <p class="sub-title">Lorem ipsum dolor sit amet consectetur adip    isicing</p>
+                        <h2 class="title">@ViewBag.Section2</h2>
+                        <p class="sub-title">@ViewBag.Section2Desc</p>
                     </div>
                 </div>
             </div>
@@ -209,7 +208,7 @@
                             <div class="blog-post-item">
                                 <div class="blog-thumb">
                                     <a href="blog-details.html">
-                                        <img src="~/assets/img/blog/@item.Image" alt="blog thumb">
+                                        <img src="~/img/@item.Image" alt="blog thumb">
                                     </a>
                                 </div>
                                 <div class="blog-content">
@@ -244,7 +243,7 @@
                         {
                             <div class="brand-item">
                                 <a href="#">
-                                    <img src="~/assets/img/brand/@item.Logo" alt="brand image">
+                                    <img src="~/img/@item.Logo" alt="brand image">
                                 </a>
                             </div>
                         }
@@ -254,5 +253,12 @@
         </div>
     </div>
     <!-- brand area end -->
+
+    @section scripts{
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js" integrity="sha512-rstIgDs0xPgmG6RX1Aba4KV5cWJbAMcvRCVmglpam9SoHZiUCyQVDdH2LPlxoHtrv17XWblE/V/PP+Tr04hbtA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/4.0.0/jquery.validate.unobtrusive.min.js" integrity="sha512-x+Vm8jC94ynOikewaQXMEkJIOBp7iArs3IhFWSWdRT3Pq8wFz46p+ZDFAR7kHnSFf+zUv52B3prRYnbDRdgog==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+    }
 </main>
 

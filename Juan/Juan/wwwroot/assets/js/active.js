@@ -16,6 +16,31 @@
 			data: data,
 			contentType: "application/x-www-form-urlencoded",
 			success: function (res) {
+				swal({
+					position: 'mid',
+					type: 'info',
+					icon: 'info',
+					title: 'Product added',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		})
+
+	});
+
+	$(document).on("click", ".salam12321", function () {
+
+		let productId = parseInt($($(this).closest(".slide-item")[0]).attr('id'));
+
+		let data = { id: productId };
+
+		$.ajax({
+			url: "/home/addbasket",
+			type: "POST",
+			data: data,
+			contentType: "application/x-www-form-urlencoded",
+			success: function (res) {
 				Swal.fire(
 					'Good job!',
 					'Product added',

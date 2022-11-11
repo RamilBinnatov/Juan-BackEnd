@@ -3,14 +3,14 @@
     "",
     "\\Juan",
     "\\Juan\\Juan",
-    "\\Juan\\Juan\\Views",
-    "\\Juan\\Juan\\Views\\Home",
-    "\\Juan\\Juan\\Views\\Product",
-    "\\Juan\\Juan\\Views\\Shared",
-    "\\Juan\\Juan\\Views\\Shared\\Components",
-    "\\Juan\\Juan\\Views\\Shared\\Components\\Quick",
-    "\\Juan\\Juan\\Views\\Shop"
+    "\\Juan\\Juan\\Areas",
+    "\\Juan\\Juan\\Areas\\AdminArea",
+    "\\Juan\\Juan\\Areas\\AdminArea\\Views",
+    "\\Juan\\Juan\\Areas\\AdminArea\\Views\\Category",
+    "\\Juan\\Juan\\wwwroot",
+    "\\Juan\\Juan\\wwwroot\\assets",
+    "\\Juan\\Juan\\wwwroot\\assets\\js"
   ],
-  "SelectedNode": "\\Juan\\Juan\\Views\\Shop\\Index.cshtml",
+  "SelectedNode": "\\Juan\\Juan\\Areas\\AdminArea\\Controllers\\SliderController.cs",
   "PreviewInSolutionExplorer": false
 }

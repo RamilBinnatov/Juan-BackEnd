@@ -12,7 +12,6 @@ namespace Juan.ViewModels
         public IEnumerable<Products> Products { get; set; }
         public IEnumerable<ProductColor> ProductColors { get; set; }
         public IEnumerable<ProductSize> ProductSizes { get; set; }
-        public Advertisement Advertisements { get; set; }
 
 
 

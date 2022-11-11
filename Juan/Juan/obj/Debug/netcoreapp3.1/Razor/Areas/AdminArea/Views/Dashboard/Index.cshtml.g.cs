@@ -12,7 +12,22 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\Areas\AdminArea\Views\_ViewImports.cshtml"
+using Juan.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\Areas\AdminArea\Views\_ViewImports.cshtml"
+using Juan.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"c7fc7aa3e1dd8954a821b99b2f55a02749abf8d9", @"/Areas/AdminArea/Views/Dashboard/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0239b73b6cf9f5e26a578ed5f6282563c1e147e4", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Dashboard_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

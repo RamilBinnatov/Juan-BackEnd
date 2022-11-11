@@ -29,6 +29,22 @@ namespace Juan.Controllers
             Dictionary<string, string> settingDatas = await _layoutService.GetDatasFromSetting();
 
             int homeTakeProduct = int.Parse(settingDatas["HomeTakeProduct"]);
+            string Section1 = settingDatas["HomeFirstSection"];
+            string Section1Desc = settingDatas["HomeFirstSectionDesc "];
+            string TopSellerAd = settingDatas["TopSellerAd"];
+            string Section2 = settingDatas["HomeSecondSection"];
+            string Section2Desc = settingDatas["HomeSecondSectionDesc"];
+            string Section3 = settingDatas["HomeThirdSection"];
+            string Section3Desc = settingDatas["HomeThirdSectionDesc"];
+
+            ViewBag.TopSeller = TopSellerAd;
+            ViewBag.Section1 = Section1;
+            ViewBag.Section1Desc = Section1Desc;
+            ViewBag.Section2 = Section2;
+            ViewBag.Section2Desc = Section2Desc;
+            ViewBag.Section3 = Section3;
+            ViewBag.Section3Desc = Section3Desc;
+
 
             IEnumerable<Slider> sliders = await _context.Sliders
                 .Where(m => !m.IsDeleted)

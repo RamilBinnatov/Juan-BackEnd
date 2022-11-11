@@ -13,6 +13,7 @@ namespace Juan.ViewModels
         public decimal Total { get; set; }
         public int Count { get; set; }
         public int Discount { get; set; }
+        public int Id { get; set; }
 
     }
 }

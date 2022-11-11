@@ -12,7 +12,22 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 1 "C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\Areas\AdminArea\Views\_ViewImports.cshtml"
+using Juan.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\Areas\AdminArea\Views\_ViewImports.cshtml"
+using Juan.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ce0380d72c173ad6f99db60fa62386481d5f848f", @"/Areas/AdminArea/Views/Shared/_ValidationPartial.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0239b73b6cf9f5e26a578ed5f6282563c1e147e4", @"/Areas/AdminArea/Views/_ViewImports.cshtml")]
     public class Areas_AdminArea_Views_Shared__ValidationPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

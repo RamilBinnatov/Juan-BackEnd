@@ -140,12 +140,16 @@
                     <li class="nav-item">
                         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                             <i class="mdi mdi-circle-outline menu-icon"></i>
-                            <span class="menu-title">Slider area</span>
+                            <span class="menu-title">CRUDS</span>
                             <i class="menu-arrow"></i>
                         </a>
                         <div class="collapse" id="ui-basic">
                             <ul class="nav flex-column sub-menu">
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Category" asp-action="Index">Category</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ProductColor" asp-action="Index">Colours</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="ProductSize" asp-action="Index">Sizes</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="Slider" asp-action="Index">Slider</a></li>
+                                <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="SliderText" asp-action="Index">Slider text</a></li>
                                 <li class="nav-item"> <a class="nav-link" asp-area="AdminArea" asp-controller="SliderText" asp-action="Index">Slider text</a></li>
                             </ul>
                         </div>
