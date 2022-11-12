@@ -37,9 +37,9 @@ namespace Juan.Controllers
                     {
                         Title = product.Title,
                         Image = product.ProductImages.Where(m => m.IsMain).FirstOrDefault().Image,
-                        Price = product.Price,
+                        Price = (product.Price - ((product.Price / 100) * product.Discount)),
                         Count = item.Count,
-                        Total = (product.Price - ((product.Price / 100) * product.Discount)),
+                        Total = (product.Price - ((product.Price / 100) * product.Discount)) * item.Count,
                         Discount = product.Discount,
                         Id = product.Id
 
@@ -54,10 +54,7 @@ namespace Juan.Controllers
             {
                 List<BasketDetailVM> basketDetail = new List<BasketDetailVM>();
                 return View(basketDetail);
-            }
-            
-
-            
+            } 
         }
 
         public IActionResult RemoveFromCart(int? Id)

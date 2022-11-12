@@ -1,12 +1,37 @@
 (function ($) {
 
+
 	"use strict";
 
 
 
-	$(document).on("click", ".salam1231", function () {
+	//$(document).on("click", ".salam1231", function () {
 
-		let productId = parseInt($($(this).closest(".product-item")[0]).attr('id'));
+	//	let productId = parseInt($($(this).closest(".supraaaa")[0]).attr('id'));
+
+	//	let data = { id: productId };
+
+	//	$.ajax({
+	//		url: "/home/addbasket",
+	//		type: "POST",
+	//		data: data,
+	//		contentType: "application/x-www-form-urlencoded",
+	//		success: function (res) {
+	//			Swall({
+	//				type: 'success',
+	//				title: 'Product added',
+	//				showConfirmButton: false,
+	//				timer: 1000
+	//			});
+	//		}
+	//	})
+
+
+	//});
+
+	$(document).on("click", ".salam12321", function () {
+
+		let productId = parseInt($($(this).closest(".godzilla")[0]).attr('id'));
 
 		let data = { id: productId };
 
@@ -16,10 +41,8 @@
 			data: data,
 			contentType: "application/x-www-form-urlencoded",
 			success: function (res) {
-				swal({
-					position: 'mid',
+				new swal({
 					type: 'success',
-					icon: 'success',
 					title: 'Product added',
 					showConfirmButton: false,
 					timer: 1000
@@ -27,35 +50,12 @@
 			}
 		})
 
-
 	});
 
-	$(document).on("click", ".salam12321", function () {
-
-		let productId = parseInt($($(this).closest(".slide-item")[0]).attr('id'));
-
-		let data = { id: productId };
-
-		$.ajax({
-			url: "/home/addbasket",
-			type: "POST",
-			data: data,
-			contentType: "application/x-www-form-urlencoded",
-			success: function (res) {
-				Swal.fire(
-					'Good job!',
-					'Product added',
-					'success'
-				)
-			}
-		})
-
-	});
+	$(document).on("click", ".salamlar", function () {
 
 
-	$(document).on("click", ".minicart-remove", function () {
-
-		let productIdRemove = parseInt($($(this).closest(".minicart-item-wrapper")[0]).attr('id'));
+		let productIdRemove = parseInt($($(this).closest(".nsx")[0]).attr('id'));
 
 		let dataRemove = { id: productIdRemove };
 
@@ -67,21 +67,7 @@
 			success: function (res) {
 			}
 		})
-
-		
-
 	});
-
-
-
-
-
-
-
-
-
-
-
 
 	// Sticky menu 
 	var $window = $(window);

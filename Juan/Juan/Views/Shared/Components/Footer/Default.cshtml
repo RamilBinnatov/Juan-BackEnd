@@ -130,10 +130,10 @@
             <div class="minicart-close">
                 <i class="ion-android-close"></i>
             </div>
-            @*<div class="minicart-content-box">
+            <div class="minicart-content-box">
                 @foreach (var item in Model.BasketProduct)
                 {
-                    <div class="minicart-item-wrapper" id="@item.Id">
+                    <div class="minicart-item-wrapper nsx" id="@item.Id">
                         <ul>
                             <li class="minicart-item">
                                 <div class="minicart-thumb">
@@ -147,21 +147,21 @@
                                     </h3>
                                     <p>
                                         <span class="cart-quantity">@item.Count <strong>&times;</strong></span>
-                                        <span class="cart-price">@((item.Price-((item.Price/100)*item.Discount)).ToString("##.00"))</span>
+                                        <span class="cart-price">$@((item.Price.ToString("##.00")))</span>
                                     </p>
                                 </div>
-                                <button class="minicart-remove"><i class="ion-android-close"></i></button>
+                                <button class="minicart-remove salamlar"><i class="ion-android-close"></i></button>
                             </li>
                         </ul>
                     </div>
-                    endTotal += item.Total;
+                    endTotal = endTotal + item.Total;
                 }
 
                 <div class="minicart-pricing-box">
                     <ul>
                         <li class="total">
                             <span>Total</span>
-                            <span><strong>$@endTotal.ToString("0.#####")</strong></span>
+                            <span><strong>$ @endTotal.ToString("0.#####")</strong></span>
                         </li>
                     </ul>
                 </div>
@@ -170,7 +170,7 @@
                     <a asp-controller="Basket" asp-action="Index"><i class="fa fa-shopping-cart"></i> view cart</a>
                     <a href="cart.html"><i class="fa fa-share"></i> checkout</a>
                 </div>
-            </div>*@
+            </div>
         </div>
     </div>
 </div>

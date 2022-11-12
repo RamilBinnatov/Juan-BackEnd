@@ -31,6 +31,8 @@ namespace Juan.ViewComponents
             string WorkingHours = settingDatas["WorkingHours"];
             string Email = settingDatas["Email"];
 
+            List<BasketDetailVM> basketDetailList = new List<BasketDetailVM>();
+
             ViewBag.Address = Address;
             ViewBag.PhoneNumber = PhoneNumber;
             ViewBag.WorkingHours = WorkingHours;
@@ -39,18 +41,45 @@ namespace Juan.ViewComponents
             IEnumerable<Social> socials = await _context.Socials
                 .Where(m => !m.IsDeleted)?
                 .ToListAsync();
-
-
-            FooterVM footerVM = new FooterVM
+            if (Request.Cookies["basket"] != null)
             {
-                Socials = socials,
-                
-            };
+                List<BasketVM> basketItems = JsonConvert.DeserializeObject<List<BasketVM>>(Request.Cookies["basket"]);
 
+                foreach (var item in basketItems)
+                {
+                    Products product = await _context.Products
+                        .Where(m => m.Id == item.Id && m.IsDeleted == false)
+                        .Include(m => m.ProductImages).FirstOrDefaultAsync();
 
+                    BasketDetailVM basketModel = new BasketDetailVM
+                    {
+                        Id = product.Id,
+                        Title = product.Title,
+                        Image = product.ProductImages.Where(m => m.IsMain)?.FirstOrDefault().Image,
+                        Price = (product.Price - ((product.Price / 100) * product.Discount)),
+                        Count = item.Count,
+                        Total = (product.Price - ((product.Price / 100) * product.Discount)) * item.Count,
+                    };
+                    basketDetailList.Add(basketModel);
+                }
 
-            return await Task.FromResult(View(footerVM));
-
+                FooterVM footerVM = new FooterVM
+                {
+                    Socials = socials,
+                    BasketProduct = basketDetailList,
+                };
+                return await Task.FromResult(View(footerVM));
+            }
+            else
+            {
+                FooterVM footerVM = new FooterVM
+                {
+                    Socials = socials,
+                    BasketProduct = basketDetailList,
+                };
+                return await Task.FromResult(View(footerVM));
+            }
+           
         }
     }
 }

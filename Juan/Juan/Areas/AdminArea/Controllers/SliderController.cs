@@ -63,7 +63,7 @@ namespace Juan.Areas.AdminArea.Controllers
 
 
 
-            string path = Helper.GetFilePath(_env.WebRootPath, "img", fileName);
+            string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", fileName);
 
             using (FileStream stream = new FileStream(path, FileMode.Create))
             {

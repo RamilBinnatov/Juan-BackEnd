@@ -48,7 +48,7 @@
                                         <tr>
                                             <td class="pro-thumbnail"><a href="#"><img class="img-fluid" src="assets/img/product/@item.Image" alt="Product" /></a></td>
                                             <td class="pro-title"><a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">@item.Title</a></td>
-                                            <td class="pro-price"><span>$ @((item.Price-((item.Price/100)*item.Discount)).ToString("##.00"))</span></td>
+                                            <td class="pro-price"><span>$@((item.Price.ToString("##.00")))</span></td>
                                             <td class="pro-quantity">
                                                 <div class="pro-qty"><input type="text" value="@item.Count"></div>
                                             </td>
@@ -57,7 +57,7 @@
                                             <td class="pro-remove"><button type="submit"><i class="fa fa-trash-o"></i></button></td>
                                             </form>
                                         </tr>
-                                        endTotal += item.Total;
+                                        endTotal = endTotal + item.Total;
                                     }
                                 </tbody>
                             </table>
@@ -97,4 +97,6 @@
             </div>
         </div>
     </div>
+
+
 </main>
