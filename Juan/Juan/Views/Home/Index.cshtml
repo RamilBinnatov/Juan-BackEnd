@@ -13,7 +13,7 @@
                         @foreach (var item in Model.Sliders)
                         {
                             <div class="hero-single-slide">
-                                <div class="hero-slider-item bg-img" data-bg="img/@item.Image">
+                                <div class="hero-slider-item bg-img" data-bg="assets/img/slider/@item.Image">
                                     <div class="hero-slider-content slide-1">
                                         <h5 class="slide-subtitle">@item.Title</h5>
                                         <h2 class="slide-title">@item.Header</h2>
@@ -39,7 +39,7 @@
                     <div class="col-lg-4">
                         <div class="service-policy-item mt-30 bg-1">
                             <div class="policy-icon">
-                                <img src="~/img/@item.Image" alt="policy icon">
+                                <img src="~/assets/img/icon/@item.Image" alt="policy icon">
                             </div>
                             <div class="policy-content">
                                 <h5 class="policy-title">@item.Title</h5>
@@ -72,7 +72,7 @@
                             <div id="@item.Id" class="product-item mb-50 godzilla">
                                 <div class="product-thumb">
                                     <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
-                                        <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                        <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                     </a>
                                 </div>
                                 <div class="product-content">
@@ -109,7 +109,7 @@
                     <div class="col-md-6">
                         <div class="img-container mt-30">
                             <a href="product-details.html">
-                                <img src="~/img/@item.Images" alt="banner-image">
+                                <img src="~/assets/img/banner/@item.Images" alt="banner-image">
                             </a>
                             <div class="banner-text">
                                 <h5 class="banner-subtitle">@item.Title</h5>
@@ -150,7 +150,7 @@
                                 <div class="pro-item-small mt-30">
                                     <div class="product-thumb">
                                         <a href="product-details.html">
-                                            <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                            <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                         </a>
                                     </div>
                                     <div class="pro-small-content">
@@ -205,7 +205,7 @@
                             <div class="blog-post-item">
                                 <div class="blog-thumb">
                                     <a href="blog-details.html">
-                                        <img src="~/img/@item.Image" alt="blog thumb">
+                                        <img src="~/assets/img/blog/@item.Image" alt="blog thumb">
                                     </a>
                                 </div>
                                 <div class="blog-content">
@@ -240,7 +240,7 @@
                         {
                             <div class="brand-item">
                                 <a href="#">
-                                    <img src="~/img/@item.Logo" alt="brand image">
+                                    <img src="~/assets/img/brand/@item.Logo" alt="brand image">
                                 </a>
                             </div>
                         }
