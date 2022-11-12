@@ -25,56 +25,21 @@ namespace Juan.Areas.AdminArea.Controllers
             _env = env;
         }
 
-        public async Task<IActionResult> Index(int page = 1, int take = 5)
+        public async Task<IActionResult> Index()
         {
-            List<Products> products = await _context.Products
+            IEnumerable<Products> products = await _context.Products
                 .Where(m => !m.IsDeleted)
                 .Include(m => m.ProductImages)
                 .Include(m => m.Category)
-                .Skip((page * take) - take)
-                .Take(take)
                 .ToListAsync();
 
-            ViewBag.take = take;
 
-            List<ProductListVM> mapDatas = GetMapDatas(products);
 
-            int count = await GetPageCount(take);
-
-            Paginate<ProductListVM> result = new Paginate<ProductListVM>(mapDatas, page, count);
-
-            return View(result);
+            return View(products);
         }
 
 
-        private async Task<int> GetPageCount(int take)
-        {
-            int productCount = await _context.Products.Where(m => !m.IsDeleted).CountAsync();
 
-            return (int)Math.Ceiling((decimal)productCount / take);
-        }
-
-        private List<ProductListVM> GetMapDatas(List<Products> products)
-        {
-            List<ProductListVM> productList = new List<ProductListVM>();
-
-            foreach (var product in products)
-            {
-                ProductListVM newProduct = new ProductListVM
-                {
-                    Id = product.Id,
-                    Title = product.Title,
-                    Description = product.Description,
-                    MainImage = product.ProductImages.Where(m => m.IsMain).FirstOrDefault()?.Image,
-                    CategoryName = product.Category.Name,
-                    Price = product.Price
-                };
-
-                productList.Add(newProduct);
-            }
-
-            return productList;
-        }
 
         [HttpGet]
         public async Task<IActionResult> Create()
@@ -118,7 +83,7 @@ namespace Juan.Areas.AdminArea.Controllers
             {
                 string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
 
-                string path = Helper.GetFilePath(_env.WebRootPath, "img", fileName);
+                string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
 
                 await Helper.SaveFile(path, photo);
 
@@ -142,6 +107,7 @@ namespace Juan.Areas.AdminArea.Controllers
                 Price = (int)convertedPrice,
                 CreateDate = DateTime.Now,
                 CategoryId = product.CategoryId,
+                Discount = product.Discound,
                 ProductImages = images
             };
 
@@ -179,13 +145,25 @@ namespace Juan.Areas.AdminArea.Controllers
 
         }
 
-
+        private decimal StringToDecimal(string str)
+        {
+            return decimal.Parse(str.Replace(".", ","));
+        }
 
 
         private async Task<SelectList> GetCategoriesAsync()
         {
             IEnumerable<Category> categories = await _context.Categories.Where(m => !m.IsDeleted).ToListAsync();
             return new SelectList(categories, "Id", "Name");
+        }
+
+        private async Task<Products> GetByIdAsync(int id)
+        {
+            return await _context.Products
+                                 .Where(m => !m.IsDeleted && m.Id == id)
+                                 .Include(m => m.Category)
+                                 .Include(m => m.ProductImages)
+                                 .FirstOrDefaultAsync();
         }
 
 
@@ -215,9 +193,107 @@ namespace Juan.Areas.AdminArea.Controllers
                 Price = product.Price,
                 Description = product.Description,
                 CategoryName = product.Category.Name,
-                MainImage = product.ProductImages.Where(m => m.IsMain).FirstOrDefault()?.Image
+                MainImage = product.ProductImages.Where(m => m.IsMain).FirstOrDefault()?.Image,
+                ProductDiscount = product.Discount
             };
             return View(productDetail);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id is null) return BadRequest();
+
+            ViewBag.categories = await GetCategoriesAsync();
+
+            Products dbProduct = await GetByIdAsync((int)id);
+
+            return View(new ProductEditVM
+            {
+                Id = dbProduct.Id,
+                Title = dbProduct.Title,
+                Description = dbProduct.Description,
+                Price = dbProduct.Price.ToString("0.#####").Replace(",", "."),
+                CategoryId = dbProduct.CategoryId,
+                Images = dbProduct.ProductImages
+            });
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, ProductEditVM updatedProduct)
+        {
+            ViewBag.categories = await GetCategoriesAsync();
+
+            if (!ModelState.IsValid) return View(updatedProduct);
+
+            Products dbProduct = await GetByIdAsync(id);
+
+            if (updatedProduct.Photos != null)
+            {
+
+                foreach (var photo in updatedProduct.Photos)
+                {
+                    if (!photo.CheckFileType("image/"))
+                    {
+                        ModelState.AddModelError("Photo", "Please choose correct image type");
+                        return View(updatedProduct);
+                    }
+
+
+                    if (!photo.CheckFileSize(500))
+                    {
+                        ModelState.AddModelError("Photo", "Please choose correct image size");
+                        return View(updatedProduct);
+                    }
+
+                }
+
+                foreach (var item in dbProduct.ProductImages)
+                {
+                    string path = Helper.GetFilePath(_env.WebRootPath, "img", item.Image);
+                    Helper.DeleteFile(path);
+                }
+
+
+                List<ProductImage> images = new List<ProductImage>();
+
+                foreach (var photo in updatedProduct.Photos)
+                {
+
+                    string fileName = Guid.NewGuid().ToString() + "_" + photo.FileName;
+
+                    string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/product", fileName);
+
+                    await Helper.SaveFile(path, photo);
+
+
+                    ProductImage image = new ProductImage
+                    {
+                        Image = fileName,
+                    };
+
+                    images.Add(image);
+
+                }
+
+                images.FirstOrDefault().IsMain = true;
+
+                dbProduct.ProductImages = images;
+
+            }
+
+            decimal convertedPrice = StringToDecimal(updatedProduct.Price);
+
+            dbProduct.Title = updatedProduct.Title;
+            dbProduct.Description = updatedProduct.Description;
+            dbProduct.Price = (int)convertedPrice;
+            dbProduct.CategoryId = updatedProduct.CategoryId;
+            dbProduct.Discount = updatedProduct.Discound;
+
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction(nameof(Index));
         }
     }
 }

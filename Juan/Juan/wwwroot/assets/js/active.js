@@ -29,6 +29,11 @@
 
 	//});
 
+
+
+
+
+
 	$(document).on("click", ".salam12321", function () {
 
 		let productId = parseInt($($(this).closest(".godzilla")[0]).attr('id'));

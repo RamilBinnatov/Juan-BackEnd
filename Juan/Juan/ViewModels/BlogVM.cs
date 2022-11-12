@@ -12,9 +12,5 @@ namespace Juan.ViewModels
         public IEnumerable<Blog> RecentPost { get; set; }
         public IEnumerable<Category> Categories { get; set; }
         public IEnumerable<Tags> Tags { get; set; }
-
-
-
-
     }
 }

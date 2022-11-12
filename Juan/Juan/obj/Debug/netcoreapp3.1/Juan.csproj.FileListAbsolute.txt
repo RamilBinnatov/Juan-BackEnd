@@ -334,6 +334,9 @@ C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductSize\Detail.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductSize\Edit.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\ProductSize\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Product\Create.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Product\Edit.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Product\Index.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shared\_AdminLayout.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Shared\_ValidationPartial.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Slider\Create.cshtml.g.cs
@@ -364,4 +367,4 @@ C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.csproj
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.dll
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.pdb
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.genruntimeconfig.cache
-C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.csproj.AssemblyReference.cache
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Product\Detail.cshtml.g.cs

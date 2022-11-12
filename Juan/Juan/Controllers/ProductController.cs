@@ -18,7 +18,6 @@ namespace Juan.Controllers
         {
             _context = context;
         }
-
         
         public async Task<IActionResult> Index(int? id)
         {
@@ -52,7 +51,6 @@ namespace Juan.Controllers
                 ProductDiscount = product.Discount,
                 socials = socials,
             };
-
 
             return View(productDetailVM);
         }

@@ -46,17 +46,13 @@ namespace Juan.Controllers
                 .Include(m => m.ProductImages)
                 .ToListAsync();
 
-
             ShopVM model = new ShopVM
             {
                 Categories = categories,
                 ProductColors = productColors,
                 ProductSizes = productSize,
                 Products = products,
-
-                
             };
-
 
             return View(model);
         }

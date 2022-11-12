@@ -33,14 +33,14 @@
                                     @foreach (var item in Model.ProductImages.Where(m=>m.IsMain))
                                     {
                                         <div class="pro-large-img img-zoom">
-                                            <img src="~/img/@item.Image" alt="" />
+                                            <img src="~/assets/img/product/@item.Image" alt="" />
                                         </div>
                                     }
                                 </div>
                                 <div class="pro-nav slick-row-5">
                                     @foreach (var item in Model.ProductImages)
                                     {
-                                        <div class="pro-nav-thumb"><img src="~/img/@item.Image" alt="" /></div>
+                                        <div class="pro-nav-thumb"><img src="~/assets/img/product/@item.Image" alt="" /></div>
                                     }
                                 </div>
                             </div>

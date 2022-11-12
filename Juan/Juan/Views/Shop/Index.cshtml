@@ -150,7 +150,7 @@
                                     <div class="product-item mb-53" data-id="@item.CategoryId">
                                         <div class="product-thumb">
                                             <a asp-controller="Product" asp-action="Index" asp-route-id="@item.Id">
-                                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
+                                                <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="">
                                             </a>
                                         </div>
                                         <div class="product-content">
@@ -174,7 +174,7 @@
                                     <div class="product-list-item mb-30">
                                         <div class="product-thumb">
                                             <a href="product-details.html">
-                                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">
+                                                <img src="~/assets/img/product/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" alt="product thumb">
                                             </a>
                                         </div>
                                         <div class="product-content-list">
