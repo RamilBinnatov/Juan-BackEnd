@@ -41,7 +41,6 @@ namespace Juan.ViewComponents
             {
                 Currencies = currencies,
                 Languages = languages,
-
             };
 
             return await Task.FromResult(View(headerVM));

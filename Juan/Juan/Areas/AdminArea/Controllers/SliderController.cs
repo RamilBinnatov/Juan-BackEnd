@@ -41,17 +41,11 @@ namespace Juan.Areas.AdminArea.Controllers
         {
             if (!ModelState.IsValid) return View();
 
-
-
-
             if (!slider.Photo.CheckFileType("image/"))
             {
                 ModelState.AddModelError("Photo", "Please choose correct image type");
                 return View();
             }
-
-
-
 
             if (!slider.Photo.CheckFileSize(2000))
             {
@@ -60,8 +54,6 @@ namespace Juan.Areas.AdminArea.Controllers
             }
 
             string fileName = Guid.NewGuid().ToString() + "_" + slider.Photo.FileName;
-
-
 
             string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", fileName);
 
@@ -144,7 +136,7 @@ namespace Juan.Areas.AdminArea.Controllers
                     return RedirectToAction(nameof(Index));
                 }
 
-                string path = Helper.GetFilePath(_env.WebRootPath, "img", fileName);
+                string path = Helper.GetFilePath(_env.WebRootPath, "assets/img/slider", fileName);
                 using (FileStream stream = new FileStream(path, FileMode.Create))
                 {
                     await slider.Photo.CopyToAsync(stream);

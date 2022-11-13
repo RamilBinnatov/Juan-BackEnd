@@ -15,6 +15,7 @@ namespace Juan.Models
         public int CategoryId { get; set; }
         public Category Category { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
+        public ICollection<Comment> Comments { get; set; }
 
     }
 }

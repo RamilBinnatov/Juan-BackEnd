@@ -1,0 +1,49 @@
+﻿@model Blog
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <span class="text-danger">@ViewBag.Message</span>
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Product
+                        </p>
+                        <div class="my-3 images">
+                            <img src="~/assets/img/blog/@Model.Image" style="width:150px; height:150px" alt="Alternate Text" />
+                        </div>
+                        <form asp-controller="Product" asp-action="Edit" enctype="multipart/form-data" class="forms-sample" method="post">
+                            <div class="form-group">
+                                <label asp-for="Title">Title</label>
+                                <input class="form-control" asp-for="Title">
+                                <span asp-validation-for="Title" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Intro">Intro</label>
+                                <input class="form-control" asp-for="Intro">
+                                <span asp-validation-for="Intro" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Quote">Quote</label>
+                                <input type="text" min="0" step=".01" class="form-control" asp-for="Quote">
+                                <span asp-validation-for="Quote" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Context">Context</label>
+                                <input type="number" min="0" step=".01" class="form-control" asp-for="Context">
+                                <span asp-validation-for="Context" class="text-danger my-1"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Photo">Photos</label>
+                                <input class="form-control" asp-for="Photo">
+                                <span asp-validation-for="Photo" class="text-danger my-1"></span>
+                            </div>
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-controller="Blog" asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

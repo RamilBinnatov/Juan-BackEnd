@@ -15,7 +15,6 @@ namespace Juan.ViewComponents
     {
         private readonly LayoutService _layoutService;
         private readonly AppDbContext _context;
-
         public QuickViewComponent(LayoutService layoutService, AppDbContext context)
         {
             _layoutService = layoutService;

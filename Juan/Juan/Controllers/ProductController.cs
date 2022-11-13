@@ -18,7 +18,7 @@ namespace Juan.Controllers
         {
             _context = context;
         }
-        
+
         public async Task<IActionResult> Index(int? id)
         {
             if (id == null)
@@ -33,6 +33,10 @@ namespace Juan.Controllers
                 .FirstOrDefaultAsync();
             IEnumerable<Social> socials = await _context.Socials
                 .Where(m => !m.IsDeleted)
+                .ToListAsync();
+            IEnumerable<Products> products = await _context.Products
+                .Where(m => !m.IsDeleted)
+                .Include(m => m.ProductImages)
                 .ToListAsync();
 
             if (product == null)
@@ -50,9 +54,19 @@ namespace Juan.Controllers
                 ProductImages = product.ProductImages,
                 ProductDiscount = product.Discount,
                 socials = socials,
+                ProductsSlid = products
+                
             };
 
             return View(productDetailVM);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> PostComment(Comment comment)
+        {
+           await _context.Comments.AddAsync(comment);
+           await _context.SaveChangesAsync();
+            return RedirectToAction("Index", new { id = comment.ProductsId });
         }
     }
 }

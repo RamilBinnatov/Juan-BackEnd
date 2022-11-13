@@ -1,0 +1,64 @@
+﻿@model Blog
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="row">
+            <span class="text-danger">@ViewBag.Message</span>
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-description">
+                            Category
+                        </p>
+                        <form asp-controller="Blog" asp-action="Create" class="forms-sample" method="post" enctype="multipart/form-data">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Title</label>
+                                <input maxlength="" minlength="" type="text" class="form-control" asp-for="Title">
+                                <span class="text-danger my-1" asp-validation-for="Title"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Intro</label>
+                                <input maxlength="" minlength="" type="text" class="form-control" asp-for="Intro">
+                                <span class="text-danger my-1" asp-validation-for="Intro"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Quote</label>
+                                <input maxlength="" minlength="" type="text" class="form-control" asp-for="Quote">
+                                <span class="text-danger my-1" asp-validation-for="Quote"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1">Context</label>
+                                <input maxlength="" minlength="" type="text" class="form-control" asp-for="Context">
+                                <span class="text-danger my-1" asp-validation-for="Context"></span>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" asp-for="Photo">
+                                <span class="text-danger" asp-validation-for="Photo"></span>
+                            </div>
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <div class="form-group">
+                                    <input class="form-control" value="@User.Identity.Name" asp-for="Creator" type="hidden">
+                                    <span class="text-danger" asp-validation-for="Creator"></span>
+                                </div>
+                            }
+                            <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                            <a asp-controller="Blog" asp-action="Index" class="btn btn-light">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <partial name="_ValidationPartial" />
+
+
+}
+
+

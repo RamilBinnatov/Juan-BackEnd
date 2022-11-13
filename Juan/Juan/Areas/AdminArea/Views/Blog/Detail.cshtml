@@ -1,0 +1,76 @@
+﻿@model Blog
+
+
+
+
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            Blog detail
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>
+                        Image
+                    </th>
+                    <th>
+                        Title
+                    </th>
+                    <th>
+                        Intro
+                    </th>
+                    <th>
+                        Quote
+                    </th>
+                    <th>
+                        Context
+                    </th>
+                    <th>
+                        Creator
+                    </th>
+                    <th>
+                        CreateDate
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+
+                <tr>
+                    <td>
+                        <img src="~/assets/img/blog/@Model.Image" alt="Alternate Text" />
+                    </td>
+                    <td>
+                        @Model.Title
+                    </td>
+                    <td>
+                        @Model.Intro
+                    </td>
+                    <td>
+                        @Model.Quote
+                    </td>
+                    <td>
+                        @Model.Context
+                    </td>
+                    <td>
+                        @Model.Creator
+                    </td>
+                    <td>
+                        @Model.CreateDate
+                    </td>
+
+                </tr>
+
+
+
+            </tbody>
+        </table>
+
+
+    </div>
+    <a asp-controller="Blog" asp-action="Index" class="btn btn-primary my-3">Back</a>
+</div>

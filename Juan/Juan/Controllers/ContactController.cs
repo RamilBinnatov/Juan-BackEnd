@@ -1,4 +1,5 @@
 ﻿using Juan.Data;
+using Juan.Models;
 using Juan.Services;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,15 +29,15 @@ namespace Juan.Controllers
             ViewBag.Address = Address;
             ViewBag.PhoneNumber = PhoneNumber;
             ViewBag.WorkingHours = WorkingHours;
-            ViewBag.Email = Email;
-
-
+            ViewBag.Email = Email;  
             return View();
         }
+
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> PostComment(Contact contact)
         {
+            await _context.Contacts.AddAsync(contact);
+            await _context.SaveChangesAsync();
             return View();
         }
     }

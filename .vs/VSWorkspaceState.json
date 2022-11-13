@@ -6,12 +6,8 @@
     "\\Juan\\Juan\\Areas",
     "\\Juan\\Juan\\Areas\\AdminArea",
     "\\Juan\\Juan\\Areas\\AdminArea\\Controllers",
-    "\\Juan\\Juan\\Views",
-    "\\Juan\\Juan\\Views\\Home",
-    "\\Juan\\Juan\\wwwroot",
-    "\\Juan\\Juan\\wwwroot\\assets",
-    "\\Juan\\Juan\\wwwroot\\assets\\js"
+    "\\Juan\\Juan\\ViewComponents"
   ],
-  "SelectedNode": "\\Juan\\Juan\\Areas\\AdminArea\\Controllers\\SliderController.cs",
+  "SelectedNode": "\\Juan\\Juan\\Areas\\AdminArea\\Controllers\\BlogController.cs",
   "PreviewInSolutionExplorer": false
 }

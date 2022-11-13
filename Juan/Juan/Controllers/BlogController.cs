@@ -40,6 +40,7 @@ namespace Juan.Controllers
                 .ToListAsync();
             IEnumerable<Tags> tags = await _context.Tags.Where(m => !m.IsDeleted).ToListAsync();
 
+
             ViewBag.take = take;
 
 
