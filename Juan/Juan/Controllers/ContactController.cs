@@ -34,11 +34,11 @@ namespace Juan.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostComment(Contact contact)
+        public async Task<IActionResult> ContactUs(Contact contact)
         {
             await _context.Contacts.AddAsync(contact);
             await _context.SaveChangesAsync();
-            return View();
+            return RedirectToAction("index");
         }
     }
 }
