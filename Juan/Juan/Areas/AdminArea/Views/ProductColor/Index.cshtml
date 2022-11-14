@@ -2,9 +2,10 @@
 
 <div class="container-fluid my-3 mx-3">
     <div class="table-responsive pt-3">
-        <div class="create-btn mb-3">
-            <a asp-area="AdminArea" asp-controller="ProductColor" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
-        </div>
+        @if (User.IsInRole("SuperAdmin"))
+        {
+            <a asp-controller="ProductColor" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+        }
         <table class="table table-bordered">
             <thead>
                 <tr>

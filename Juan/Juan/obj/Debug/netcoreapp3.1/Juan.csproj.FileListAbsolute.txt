@@ -378,3 +378,5 @@ C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.pdb
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Juan.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Partials\_Contact.cshtml.g.cs
 C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Areas\AdminArea\Views\Contact\Index.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgetPassword.cshtml.g.cs
+C:\Users\ASUS\Desktop\Juan-BackEnd\Juan\Juan\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs

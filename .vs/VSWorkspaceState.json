@@ -6,8 +6,9 @@
     "\\Juan\\Juan\\Areas",
     "\\Juan\\Juan\\Areas\\AdminArea",
     "\\Juan\\Juan\\Areas\\AdminArea\\Controllers",
+    "\\Juan\\Juan\\Controllers",
     "\\Juan\\Juan\\ViewComponents"
   ],
-  "SelectedNode": "\\Juan\\Juan\\Areas\\AdminArea\\Controllers\\BlogController.cs",
+  "SelectedNode": "\\Juan\\Juan.sln",
   "PreviewInSolutionExplorer": false
 }

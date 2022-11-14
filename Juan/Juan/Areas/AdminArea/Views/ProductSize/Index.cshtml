@@ -3,7 +3,10 @@
 <div class="container-fluid my-3 mx-3">
     <div class="table-responsive pt-3">
         <div class="create-btn mb-3">
-            <a asp-area="AdminArea" asp-controller="ProductSize" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+            @if (User.IsInRole("SuperAdmin"))
+            {
+                <a asp-controller="ProductSize" asp-action="Create" class="btn btn-success"><i class="fa-solid fa-plus"></i></a>
+            }
         </div>
         <table class="table table-bordered">
             <thead>

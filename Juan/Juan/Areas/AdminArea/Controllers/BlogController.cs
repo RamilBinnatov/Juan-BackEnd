@@ -1,6 +1,7 @@
 ﻿using Juan.Data;
 using Juan.Helpers;
 using Juan.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -13,8 +14,9 @@ using System.Threading.Tasks;
 namespace Juan.Areas.AdminArea.Controllers
 {
 
-        [Area("AdminArea")]
-        public class BlogController : Controller
+    [Area("AdminArea")]
+    [Authorize(Roles = "SuperAdmin,Admin")]
+    public class BlogController : Controller
         {
             private readonly AppDbContext _context;
             private readonly IWebHostEnvironment _env;
@@ -30,11 +32,12 @@ namespace Juan.Areas.AdminArea.Controllers
                 return View(Blogs);
             }
 
-            [HttpGet]
-            public async Task<IActionResult> Create()
-            {
+        [HttpGet]
+        [Authorize(Roles = "SuperAdmin")]
+        public async Task<IActionResult> Create()
+        {
                 return View();
-            }
+        }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
